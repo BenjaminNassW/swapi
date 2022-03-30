@@ -23,11 +23,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().changeColor(0, "green");
       },
       loadSomeData: () => {
+        const store = getStore();
+        console.log(store);
         fetch("https://www.swapi.tech/api/planets/")
           .then((res) => res.json())
           .then((data) => {
             setStore({ locations: data.results });
-            console.log(getStore());
           })
           .catch((err) => console.error(err));
         fetch("https://www.swapi.tech/api/starships")
@@ -39,7 +40,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://www.swapi.tech/api/people")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ peoples: data.results });
+            data.results.map((obj) => {
+              fetch(obj.url)
+                .then((res) => res.json())
+                .then((data) => {
+                  setStore({
+                    peoples: [...store.peoples, data.result.properties],
+                  });
+                });
+            });
           })
           .catch((err) => console.error(err));
 

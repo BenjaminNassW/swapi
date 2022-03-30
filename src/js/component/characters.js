@@ -1,15 +1,10 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import Card from "./card";
 
 const Char = () => {
-  const [char, setChar] = useState({});
-  fetch("https://www.swapi.tech/api/people")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      setChar(data);
-    })
-    .catch((err) => console.error(err));
-  return char;
+  //here you use useContext to get store and actions
+  const { store, actions } = useContext(Context);
+  return <div></div>;
 };
 export default Char;
