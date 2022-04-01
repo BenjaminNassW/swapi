@@ -28,13 +28,29 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://www.swapi.tech/api/planets/")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ locations: data.results });
+            data.results.map((obj) => {
+              fetch(obj.url)
+                .then((res) => res.json())
+                .then((data) => {
+                  setStore({
+                    locations: [...store.locations, data.result.properties],
+                  });
+                });
+            });
           })
           .catch((err) => console.error(err));
         fetch("https://www.swapi.tech/api/starships")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ starships: data.results });
+            data.results.map((obj) => {
+              fetch(obj.url)
+                .then((res) => res.json())
+                .then((data) => {
+                  setStore({
+                    starships: [...store.starships, data.result.properties],
+                  });
+                });
+            });
           })
           .catch((err) => console.error(err));
         fetch("https://www.swapi.tech/api/people")

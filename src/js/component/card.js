@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
@@ -13,9 +14,24 @@ const Card = (props) => {
             <p>Hair color: {props.hair_color}</p>
           </>
         )}
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
+        {props.population && (
+          <>
+            <p>Population: {props.population}</p>
+            <p>Diameter: {props.diameter}</p>
+            <p>Terrain: {props.terrain}</p>
+          </>
+        )}
+        {props.model && (
+          <>
+            <p>Model: {props.model}</p>
+            <p>Crew: {props.crew}</p>
+            <p>Manufacturer: {props.manufacturer}</p>
+          </>
+        )}
+
+        <Link to={"/personaje/" + props.index}>
+          <button>click</button>
+        </Link>
       </div>
     </div>
   );

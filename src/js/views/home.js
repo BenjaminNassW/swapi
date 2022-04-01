@@ -6,6 +6,7 @@ import Char from "../component/characters";
 import Card from "../component/card";
 import { Context } from "../store/appContext";
 import propTypes from "prop-types";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -29,7 +30,8 @@ export const Home = () => {
               homeworld={obj.homeworld}
               mass={obj.mass}
               skin_color={obj.skin_color}
-            />
+              index={index}
+            ></Card>
           );
         })}
       </div>
@@ -39,7 +41,15 @@ export const Home = () => {
         className="overflow-scroll"
       >
         {store.locations.map((obj, index) => {
-          return <Card key={index} name={obj.name} />;
+          return (
+            <Card
+              key={index}
+              name={obj.name}
+              population={obj.population}
+              diameter={obj.diameter}
+              terrain={obj.terrain}
+            />
+          );
         })}
       </div>
       <h2>Spaceships</h2>
@@ -48,7 +58,15 @@ export const Home = () => {
         className="overflow-scroll"
       >
         {store.starships.map((obj, index) => {
-          return <Card key={index} name={obj.name} />;
+          return (
+            <Card
+              key={index}
+              name={obj.name}
+              model={obj.model}
+              crew={obj.crew}
+              manufacturer={obj.manufacturer}
+            />
+          );
         })}
       </div>
     </div>
