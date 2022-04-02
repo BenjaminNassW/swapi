@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/index.css";
 
-export const Detalles = (props) => {
+export const DetailsS = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
@@ -16,7 +15,7 @@ export const Detalles = (props) => {
         ></img>
         <div className="col-6" style={{ display: "block" }}>
           <h1 className="display-4 ms-5">
-            {store.peoples[params.theid]?.name}
+            {store.starships[params.theid]?.name}
           </h1>
           <p className="ms-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac
@@ -33,44 +32,62 @@ export const Detalles = (props) => {
         <div className="row gx-5">
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Gender</h6>
-              <p>{store.peoples[params.theid]?.gender}</p>
+              <h6>Model</h6>
+              <p>{store.starships[params.theid]?.model}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Eye Color</h6>
-              <p>{store.peoples[params.theid]?.eye_color}</p>
+              <h6>Crew</h6>
+              <p>{store.starships[params.theid]?.crew}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Hair Color</h6>
-              <p>{store.peoples[params.theid]?.hair_color}</p>
+              <h6>Manufacturer</h6>
+              <p>{store.starships[params.theid]?.manufacturer}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Height</h6>
-              <p>{store.peoples[params.theid]?.height}</p>
+              <h6>MGLT</h6>
+              <p>{store.starships[params.theid]?.MGLT}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Weight</h6>
-              <p>{store.peoples[params.theid]?.mass}</p>
+              <h6>Cargo Capacity</h6>
+              <p>{store.starships[params.theid]?.cargo_capacity}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Skin Color</h6>
-              <p>{store.peoples[params.theid]?.skin_color}</p>
+              <h6>Consumables</h6>
+              <p>{store.starships[params.theid]?.consumables}</p>
             </div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              <h6>Birthyear</h6>
-              <p>{store.peoples[params.theid]?.birth_year}</p>
+              <h6>Cost in Credits</h6>
+              <p>{store.starships[params.theid]?.cost_in_credits}</p>
+            </div>
+          </div>
+          <div className="col">
+            <div className="p-3 border bg-light">
+              <h6>Hyperdrive Rating</h6>
+              <p>{store.starships[params.theid]?.hyperdrive_rating}</p>
+            </div>
+          </div>
+          <div className="col">
+            <div className="p-3 border bg-light">
+              <h6>Max Atmosphering Speed</h6>
+              <p>{store.starships[params.theid]?.max_atmosphering_speed}</p>
+            </div>
+          </div>
+          <div className="col">
+            <div className="p-3 border bg-light">
+              <h6>Length</h6>
+              <p>{store.starships[params.theid]?.length}</p>
             </div>
           </div>
         </div>
