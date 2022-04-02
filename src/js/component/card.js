@@ -1,5 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+<script
+  src="https://kit.fontawesome.com/eefa9efda7.js"
+  crossorigin="anonymous"
+></script>;
 
 const Card = (props) => {
   return (
@@ -22,6 +30,7 @@ const Card = (props) => {
             <Link to={"/personaje/" + props.index}>
               <button>Learn More</button>
             </Link>
+            <FontAwesomeIcon icon={faHeart} />
           </>
         )}
         {props.population && (
@@ -32,6 +41,7 @@ const Card = (props) => {
             <Link to={"/locations/" + props.index}>
               <button>Learn More</button>
             </Link>
+            <FontAwesomeIcon icon={faHeart} />
           </>
         )}
         {props.model && (
@@ -42,6 +52,7 @@ const Card = (props) => {
             <Link to={"/spaceships/" + props.index}>
               <button>Learn More</button>
             </Link>
+            <FontAwesomeIcon icon={faHeart} />
           </>
         )}
       </div>
