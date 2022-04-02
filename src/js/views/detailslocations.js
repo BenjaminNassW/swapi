@@ -74,12 +74,6 @@ export const DetailsL = (props) => {
           </div>
         </div>
       </div>
-
-      <Link to="/">
-        <span className="btn btn-primary btn-lg" href="#" role="button">
-          Back home
-        </span>
-      </Link>
     </div>
   );
 };
