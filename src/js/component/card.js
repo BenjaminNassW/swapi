@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Context } from "../store/appContext";
+import getState from "../store/flux.js";
+
 <script
   src="https://kit.fontawesome.com/eefa9efda7.js"
   crossorigin="anonymous"
 ></script>;
 
 const Card = (props) => {
+  const { store, actions } = useContext(Context);
+
   return (
     <div
       className="card container me-2"
@@ -30,7 +34,13 @@ const Card = (props) => {
             <Link to={"/personaje/" + props.index}>
               <button>Learn More</button>
             </Link>
-            <FontAwesomeIcon icon={faHeart} />
+            <button
+              onClick={() => {
+                actions.setFavorite(props);
+              }}
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
           </>
         )}
         {props.population && (
@@ -41,7 +51,13 @@ const Card = (props) => {
             <Link to={"/locations/" + props.index}>
               <button>Learn More</button>
             </Link>
-            <FontAwesomeIcon icon={faHeart} />
+            <button
+              onClick={() => {
+                actions.setFavorite(props);
+              }}
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
           </>
         )}
         {props.model && (
@@ -52,7 +68,13 @@ const Card = (props) => {
             <Link to={"/spaceships/" + props.index}>
               <button>Learn More</button>
             </Link>
-            <FontAwesomeIcon icon={faHeart} />
+            <button
+              onClick={() => {
+                actions.setFavorite(props);
+              }}
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
           </>
         )}
       </div>

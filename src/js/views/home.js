@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import getState from "../store/flux";
-import Char from "../component/characters";
 import Card from "../component/card";
 import { Context } from "../store/appContext";
-import propTypes from "prop-types";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
