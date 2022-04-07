@@ -13,6 +13,7 @@ import getState from "../store/flux.js";
 
 const Card = (props) => {
   const { store, actions } = useContext(Context);
+  const [color, setColor] = useState("");
 
   return (
     <div
@@ -35,8 +36,10 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
+              className={color}
               onClick={() => {
                 actions.setFavorite(props);
+                setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />
@@ -52,8 +55,10 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
+              className={color}
               onClick={() => {
                 actions.setFavorite(props);
+                setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />
@@ -69,8 +74,10 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
+              className={color}
               onClick={() => {
                 actions.setFavorite(props);
+                setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />

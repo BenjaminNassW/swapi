@@ -1,3 +1,5 @@
+import { element } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -89,7 +91,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       setFavorite: (element) => {
         const store = getStore();
-        setStore({ favorites: [...store.favorites, element.name] });
+        setStore({ favorites: [...store.favorites, element] });
+      },
+      filterFavorite: (element) => {
+        const store = getStore();
+        let newArray = store.favorites.filter((obj, index) => {
+          return obj !== element;
+        });
+        setStore({ favorites: newArray });
       },
     },
   };

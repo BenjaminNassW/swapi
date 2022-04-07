@@ -2,7 +2,13 @@ import { Link } from "react-router-dom";
 import "../../styles/index.css";
 import { Context } from "../store/appContext";
 import React, { useContext } from "react";
-import getState from "../store/flux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
+<script
+  src="https://kit.fontawesome.com/eefa9efda7.js"
+  crossorigin="anonymous"
+></script>;
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -28,7 +34,22 @@ export const Navbar = () => {
           <li>
             <a className="dropdown-item" href="#">
               {store.favorites.map((e, i) => {
-                return <p key={i}>{e}</p>;
+                return (
+                  <div className="d-flex" key={i}>
+                    <Link to={"/personaje/" + e.index}>
+                      <p key={i} className="me-2" id="favorites">
+                        {e.name}
+                      </p>
+                    </Link>
+                    <button
+                      onClick={() => {
+                        actions.filterFavorite(e);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
+                  </div>
+                );
               })}
             </a>
           </li>

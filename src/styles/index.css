@@ -7,3 +7,9 @@
 #dropdownMenuButton1{
     float: right;
 }
+#favorites{
+    min-height: 10px;
+}
+.yellow{
+    background-color: yellow;
+}
