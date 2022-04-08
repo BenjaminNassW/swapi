@@ -27,6 +27,7 @@ export const Home = () => {
               mass={obj.mass}
               skin_color={obj.skin_color}
               index={index}
+              like={false}
             ></Card>
           );
         })}
@@ -49,6 +50,7 @@ export const Home = () => {
               orbitalperiod={obj.orbital_period}
               rotationperiod={obj.rotation_period}
               index={index}
+              like={false}
             />
           );
         })}
@@ -74,6 +76,7 @@ export const Home = () => {
               max_atmosphering_speed={obj.max_atmosphering_speed}
               length={obj.length}
               index={index}
+              like={false}
             />
           );
         })}
