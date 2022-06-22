@@ -27,7 +27,11 @@ export const Home = () => {
               mass={obj.mass}
               skin_color={obj.skin_color}
               index={index}
-              like={false}
+              like={
+                store.favorites.find((item) => item.name === obj.name)
+                  ? true
+                  : false
+              }
             ></Card>
           );
         })}
@@ -50,7 +54,11 @@ export const Home = () => {
               orbitalperiod={obj.orbital_period}
               rotationperiod={obj.rotation_period}
               index={index}
-              like={false}
+              like={
+                store.favorites.find((item) => item.name === obj.name)
+                  ? true
+                  : false
+              }
             />
           );
         })}
@@ -76,7 +84,11 @@ export const Home = () => {
               max_atmosphering_speed={obj.max_atmosphering_speed}
               length={obj.length}
               index={index}
-              like={false}
+              like={
+                store.favorites.find((item) => item.name === obj.name)
+                  ? true
+                  : false
+              }
             />
           );
         })}

@@ -36,10 +36,14 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
-              className={color}
+              className={props.like ? "btn btn-warning" : "btn btn-info"}
               onClick={() => {
-                actions.setFavorite(props);
-                setColor("yellow");
+                if (props.like) {
+                  actions.filterFavorite(props);
+                } else {
+                  actions.setFavorite(props);
+                }
+                //setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />
@@ -55,10 +59,14 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
-              className={color}
+              className={props.like ? "btn btn-warning" : "btn btn-info"}
               onClick={() => {
-                actions.setFavorite(props);
-                setColor("yellow");
+                if (props.like) {
+                  actions.filterFavorite(props);
+                } else {
+                  actions.setFavorite(props);
+                }
+                //setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />
@@ -74,10 +82,14 @@ const Card = (props) => {
               <button>Learn More</button>
             </Link>
             <button
-              className={color}
+              className={props.like ? "btn btn-warning" : "btn btn-info"}
               onClick={() => {
-                actions.setFavorite(props);
-                setColor("yellow");
+                if (props.like) {
+                  actions.filterFavorite(props);
+                } else {
+                  actions.setFavorite(props);
+                }
+                //setColor("yellow");
               }}
             >
               <FontAwesomeIcon icon={faHeart} />

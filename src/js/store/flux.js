@@ -90,13 +90,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ demo: demo });
       },
       setFavorite: (element) => {
+        console.log(element);
         const store = getStore();
+        if (store.favorites.find((item) => item.name === element.name)) return;
         setStore({ favorites: [...store.favorites, element] });
       },
       filterFavorite: (element) => {
         const store = getStore();
-        let newArray = store.favorites.filter((obj, index) => {
-          return obj !== element;
+        let newArray = store.favorites.filter((obj) => {
+          return obj.name !== element.name;
         });
         setStore({ favorites: newArray });
       },
